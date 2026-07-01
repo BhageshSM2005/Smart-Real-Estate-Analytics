@@ -1,21 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
+import Prediction from "./pages/Prediction";
+import Analytics from "./pages/Analytics";
+import History from "./pages/History";
+import Profile from "./pages/Profile";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
-function Home() {
-
-    return (
-
-        <h1 className="text-3xl text-center mt-20">
-
-            Dashboard Coming Soon
-
-        </h1>
-
-    );
-
-}
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
 
@@ -27,7 +20,47 @@ function App() {
 
                 <Route
                     path="/"
-                    element={<Home />}
+                    element={
+                        <ProtectedRoute>
+                            <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/prediction"
+                    element={
+                        <ProtectedRoute>
+                            <Prediction />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/analytics"
+                    element={
+                        <ProtectedRoute>
+                            <Analytics />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/history"
+                    element={
+                        <ProtectedRoute>
+                            <History />
+                        </ProtectedRoute>
+                    }
+                />
+
+                <Route
+                    path="/profile"
+                    element={
+                        <ProtectedRoute>
+                            <Profile />
+                        </ProtectedRoute>
+                    }
                 />
 
                 <Route

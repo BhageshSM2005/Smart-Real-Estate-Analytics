@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { signupUser } from "../services/authService";
 
 function Signup() {
@@ -6,9 +7,10 @@ function Signup() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
     const [message, setMessage] = useState("");
 
+    const navigate = useNavigate();
+    
     const register = async () => {
 
         try {
@@ -20,6 +22,12 @@ function Signup() {
             });
 
             setMessage(response.message);
+
+            setTimeout(() => {
+
+                navigate("/login");
+
+            }, 1500);
 
         } catch (error) {
 

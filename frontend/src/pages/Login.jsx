@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/authService";
 
@@ -9,6 +9,16 @@ function Login() {
     const [message, setMessage] = useState("");
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+
+        if (localStorage.getItem("token")) {
+
+            navigate("/");
+
+        }
+
+    }, [navigate]);
 
     const login = async () => {
 
