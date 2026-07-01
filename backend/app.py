@@ -6,6 +6,7 @@ from config import Config
 from database import db
 from models.user import User
 from models.prediction_history import PredictionHistory
+from routes.auth_routes import auth_bp
 
 app = Flask(__name__)
 
@@ -17,6 +18,9 @@ db.init_app(app)
 
 jwt = JWTManager(app)
 
+jwt = JWTManager(app)
+
+app.register_blueprint(auth_bp)
 
 @app.route("/")
 def home():
