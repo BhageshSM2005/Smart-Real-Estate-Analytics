@@ -21,8 +21,10 @@ with open(model_path, "rb") as f:
 with open(columns_path, "r") as f:
     data_columns = json.load(f)["data_columns"]
 
+
 def get_location_names():
     return data_columns[3:]
+
 
 def predict_price(location, sqft, bath, bhk):
 
