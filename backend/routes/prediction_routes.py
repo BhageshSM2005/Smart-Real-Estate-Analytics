@@ -7,6 +7,7 @@ from services.prediction_service import (
     save_prediction,
     get_prediction_history
 )
+from services.analytics_service import get_analytics
 
 prediction_bp = Blueprint(
     "prediction",
@@ -118,3 +119,13 @@ def history():
         for item in history
 
     ])
+
+@prediction_bp.route("/analytics", methods=["GET"])
+@jwt_required()
+def analytics():
+
+    user_id = int(get_jwt_identity())
+
+    data = get_analytics(user_id)
+
+    return jsonify(data)
