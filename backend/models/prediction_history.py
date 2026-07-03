@@ -1,7 +1,6 @@
 from database import db
 from datetime import datetime
 
-
 class PredictionHistory(db.Model):
 
     __tablename__ = "prediction_history"
@@ -46,6 +45,3 @@ class PredictionHistory(db.Model):
         db.DateTime,
         default=datetime.utcnow
     )
-
-    def __repr__(self):
-        return f"<Prediction {self.location}>"

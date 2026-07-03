@@ -18,3 +18,11 @@ export const predictPrice = async (data) => {
     return response.data;
 
 };
+
+export const getPredictionHistory = async () => {
+
+    const response = await API.get("/history");
+
+    return response.data;
+
+};

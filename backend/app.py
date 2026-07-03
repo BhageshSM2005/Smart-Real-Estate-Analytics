@@ -8,6 +8,7 @@ from models.user import User
 from models.prediction_history import PredictionHistory
 from routes.auth_routes import auth_bp
 from routes.prediction_routes import prediction_bp
+from models.prediction_history import PredictionHistory
 
 app = Flask(__name__)
 
@@ -16,8 +17,6 @@ app.config.from_object(Config)
 CORS(app)
 
 db.init_app(app)
-
-jwt = JWTManager(app)
 
 jwt = JWTManager(app)
 

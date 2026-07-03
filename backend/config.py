@@ -1,4 +1,5 @@
 from urllib.parse import quote_plus
+from datetime import timedelta
 
 password = quote_plus("Bhagesh@2005")
 
@@ -14,3 +15,5 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     JWT_SECRET_KEY = "smart_real_estate_jwt_secret"
+    
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=12)
